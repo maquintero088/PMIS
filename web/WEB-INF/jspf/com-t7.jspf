@@ -1,0 +1,41 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="Negocio.Comunicacion"%>
+<%@page import="Services.Slides"%>
+<%@ page pageEncoding="UTF-8" %>
+<%if(new Comunicacion().top()==null){%>
+<div>
+    <b>No hay proyectos disponibles.</b>
+</div>
+<%}else{%>
+<table class="com-table2">
+    <tr>
+        <td class="bborde" colspan="3">
+            <h4 class="title2">Top 5 proyectos Priorizados</h4>
+        </td>        
+    </tr>
+    <tr>
+        <td class="bborde">
+            <h4 class="title2">No Prioridad</h4>
+        </td>
+        <td class="bborde">
+            <h4 class="title2">Nombre Proyecto</h4>
+        </td>
+        <td class="bborde">
+            <h4 class="title2">Vicepresidencia</h4>
+        </td>
+    </tr>
+    <%String [][] top = new Comunicacion().top();
+    for(int p=0;p<top.length;p++){%>
+    <tr>        
+        <td class="bborde">
+            <div><%=top[p][0]%></div>
+        </td>
+        <td class="bborde">
+            <div><%=top[p][1]%></div>
+        </td>
+        <td class="bborde">
+            <div><%=top[p][2]%></div>             
+        </td>
+    </tr>    
+    <%}}%>
+</table> 

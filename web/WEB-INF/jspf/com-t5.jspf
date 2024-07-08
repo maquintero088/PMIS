@@ -1,0 +1,53 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="Services.Slides"%>
+<%@ page pageEncoding="UTF-8" %> 
+<table class="com-table">
+    <tr>
+            <th class="com-th">
+            <%= new Slides().getSlides(4, 8)%>
+        </th>
+        <th class="com-th">
+            <%= new Slides().getSlides(4, 9)%> 
+        </th>
+    </tr>
+    <%for (int t=10;t<16;t=t+2){%>
+    <tr>
+        <Td>
+            <b><%= new Slides().getSlides(4, t)%></b>
+        </td>
+        <Td class="justify">
+            <%= new Slides().getSlides(4, t+1)%>
+        </td>
+    </tr>
+    <%}%>
+    <tr>
+        <td>
+            <b><%= new Slides().getSlides(4, 16)%></b>
+        </td>
+        <td class="justify">
+            <table class="com-table3">
+                <tr>
+                    <td colspan="2">
+                        <%= new Slides().getSlides(4, 17)%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <%= new Slides().getSlides(4, 18)%>
+                    </td>
+                    <Td class="justify">
+                        <%= new Slides().getSlides(4, 19)%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <%= new Slides().getSlides(4, 20)%> 
+                    </td>
+                    <Td class="justify">
+                        <%= new Slides().getSlides(4, 21)%>
+                    </td>
+                </tr>
+            </table>  
+        </td>
+    </tr>
+</table> 
