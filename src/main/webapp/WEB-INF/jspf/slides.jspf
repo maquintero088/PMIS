@@ -1,0 +1,121 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="Datos.Oracle"%>
+<%@page import="Services.Slides"%>
+<%@page import="Negocio.Negocio"%>
+<%@ page pageEncoding="UTF-8" %>
+<section class="slide">        
+<%if(request.getParameter("com_option")==null){%>
+
+<%}else if(request.getParameter("com_option").equals("Aprobacion")){
+    String [] 
+            id = new Negocio().valores("PMO_TOTAL_PROYECTOS where ID_ESTADO_PRIORIZACION in (10)", "ID_PROYECTOS", "ID_PROYECTOS"),
+            req = new Negocio().valores("PMO_TOTAL_PROYECTOS where ID_ESTADO_PRIORIZACION in (10)", "NO_REQ_PADRE", "NO_REQ_PADRE"),
+            tipo = new Negocio().valores("PMO_TIPO", "NOMBRE_TIPO", "NOMBRE_TIPO"),
+            project = new Negocio().valores("PMO_TOTAL_PROYECTOS where ID_ESTADO_PRIORIZACION in (10)", "NOMBRE_PROYECTO", "NOMBRE_PROYECTO");        
+    if(new Negocio().in("PMO_TOTAL_PROYECTOS","count(ID_PROYECTOS)", "ID_ESTADO_PRIORIZACION", "10").equals("0")){%>
+    <b>No existen Solicitudes PMO para responder</b>
+    <%}else{%>
+    <div>
+        <div class="slidetitle">
+            <b><%= new Slides().getSlides(4, 0)%></b>
+        </div>
+        <div class="slidebody">
+            <form action="comunicacion/ver.jsp" method="post">
+                <div class="cuadro1">                                                    
+                    <label for="1var1"> 
+                        Solicitud PMO:
+                    </label>                        
+                    <select name="1var1">
+                        <%for(int t=0;t<project.length;t++){%>                            
+                        <option value="<%=id[t]%>">#<%=req[t]+" - "+new Negocio().caracteres(project[t])%></option>
+                        <%}%> 
+                    </select> 
+                </div> 
+                    <div>
+                        <input type="hidden" name="page" value="<%=request.getRequestURI().replace("/PMIS_Tigo_PMO/comunicacion/", "/PMIS_Tigo_PMO/comunicacion.jsp") %>" />                       
+                        <input type="hidden" name="slide" value="1" /> 
+                        <input type="submit" class="bt" value="Siguiente">
+                    </div>             
+            </form>
+            <div>
+                <%@include  file="com-t5.jspf" %>
+            </div>
+        </div>
+        <div class="slidefooter"> 
+        </div>
+    </div>
+    <%}%>
+<%}else if(request.getParameter("com_option").equals("Project")){
+String [] 
+        id = new Negocio().valores("PMO_TOTAL_PROYECTOS where ID_ESTADO_PRIORIZACION in (1) and ID_TIPO in (2,3) order by ID_PROYECTOS desc", "ID_PROYECTOS", "ID_PROYECTOS"),
+        project = new Negocio().valores("PMO_TOTAL_PROYECTOS where ID_ESTADO_PRIORIZACION in (1) and ID_TIPO in (2,3) order by ID_PROYECTOS desc", "NOMBRE_PROYECTO", "NOMBRE_PROYECTO");
+%>
+<div>
+    <form action="comunicacion/ver.jsp" method="post">
+    <div class="slidetitle">        
+        <label for="3var1"> 
+            <b><%= new Slides().getSlides(6, 0)%></b>
+        </label>                        
+        <select name="3var1">
+            <%for(int t=0;t<project.length;t++){%>                            
+            <option value="<%=id[t]%>"><%=new Negocio().caracteres(project[t])%></option>
+            <%}%> 
+        </select> 
+    </div>  
+    <div class="slidebody">
+        <div>
+            <input type="hidden" name="page" value="<%=request.getRequestURI().replace("/PMIS_Tigo_PMO/comunicacion/", "/PMIS_Tigo_PMO/comunicacion.jsp") %>" />                       
+            <input type="hidden" name="slide" value="3" /> 
+            <input type="submit" class="bt" value="Siguiente">
+        </div>
+        <div class="parrafo1">
+            <%@include  file="com-t7.jspf" %>
+        </div>
+        <div class="parrafo1">
+            <%@include  file="com-t7_1.jspf" %>
+        </div>
+        <div class="slidefooter">
+        </div>        
+    </div>
+    </form>
+</div>
+<%}else if(request.getParameter("com_option").equals("Bau")){
+    
+    String [] 
+            numero = new Negocio().valores("PMO_TOTAL_PROYECTOS", "max(NUMERO_PRIORIZACION)", "max(NUMERO_PRIORIZACION)"),
+            id = new Negocio().valores("PMO_TOTAL_PROYECTOS where ID_ESTADO_PRIORIZACION in (1) and ID_TIPO in (1) order by ID_PROYECTOS desc", "ID_PROYECTOS", "ID_PROYECTOS"),
+            project = new Negocio().valores("PMO_TOTAL_PROYECTOS where  ID_ESTADO_PRIORIZACION in (1) and ID_TIPO in (1) order by ID_PROYECTOS desc", "NOMBRE_PROYECTO", "NOMBRE_PROYECTO"),
+            req = new Negocio().valores("PMO_TOTAL_PROYECTOS where  ID_ESTADO_PRIORIZACION in (1) and ID_TIPO in (1) order by ID_PROYECTOS desc", "NO_REQ_PADRE", "NO_REQ_PADRE");
+    %>     
+    <div>
+        <form action="comunicacion/ver.jsp" method="post">
+            <div class="slidetitle">                                                    
+                <div class="cuadro1">                                                      
+                    <label for="2var1"> 
+                        <b class="azul"><%= new Slides().getSlides(7, 0)%></b>
+                    </label>
+                    <select name="2var1">
+                        <%for(int t=0;t<project.length;t++){%>                            
+                        <option value="<%=id[t]%>">#<%=req[t]+" - "+new Negocio().caracteres(project[t])%></option>
+                        <%}%> 
+                    </select> 
+                </div>
+            </div>
+            <div class="slidebody">    
+                <div>
+                    <input type="hidden" name="page" value="<%=request.getRequestURI().replace("/PMIS_Tigo_PMO/comunicacion/", "/PMIS_Tigo_PMO/comunicacion.jsp") %>" />                       
+                    <input type="hidden" name="slide" value="2" /> 
+                    <input type="submit" class="bt" value="Siguiente">
+                </div>   
+                <div class="parrafo1">
+                    <%@include  file="com-t8.jspf" %>
+                </div>
+            </div>
+            <div class="slidefooter">
+            </div>
+        </form>
+    </div>
+<%}else if(request.getParameter("com_option").equals("Avance")){%>
+    <object width="800" height="400" type="text/html" data="status.jsp" standby="Cargando..."></object>
+<%}%>            
+</section>

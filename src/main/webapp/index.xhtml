@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>PMO - home</title>
+        <link href="css/css.css" rel="stylesheet" type="text/css"/>        
+        <link href="images/tigopmo.png" type="image/x-icon" rel="shortcut icon" />
+        <meta http-equiv="X-UA-Compatible" content="IE=11" />
+        <script language="JavaScript">
+    function ventana(link){        
+    newwindow=window.open(link,"","width=800,height=600,resizable=yes,scrollbars=yes");
+            newwindow.creator=self;
+        }
+                </script>
+    </h:head>
+    <h:body >
+        <div id="page-wrap">
+            <header class="PMIS"> 
+            <img src="images/PMIS.png" style="width:200px;"  name="Dashboard"  alt="dashboard" /> 
+            <hr></hr>
+                <form action="mailto:pmo@tigo.com.co" method="post">
+                    <input type="submit" value="" id="contactenos" class="bimg" title='Envíenos sus comentarios o necesidades aquí.'/>
+                </form>
+                <!-- http://medkannel03:8085/PMIS_Tigo_PMO/ actual:localhost:8080/PMIS_Tigo_PMO/  , 10.67.157.18 | http://rbogdmquintero/-->
+            </header>
+        <section>
+            <a target="_blank" onclick="ventana('Gestion.jsp')">
+                <img src="images/base.png" class="bimg"  name="base"  alt="base" 
+                     title="Gestión de la Base de Datos de Proyectos, Documentación, Stakeholders, Lecciones Aprendidas entre otros a traves de portal VAS - Aplicación PMO"/>             
+            </a>
+            <a target="_blank" onclick="ventana('Dashboard.html')">
+                <img src="images/dashboard.png" class="bimg"  name="Dashboard" alt="dashboard" 
+                title='Informe de diagramas actualizado en tiempo real de los proyectos, estado y comportamiento. Visualización y exportación de dashboard PMO.' />                                           
+            </a>
+            <a onclick="ventana('http://10.69.38.4:9090/login.action?os_destination=%2Fspacedirectory%2Fview.action')" target="_blank">
+               <img src="images/confluence.png" class="bimg"  name="Repositorio"  alt="repositorio" 
+                title='Acceso directo para iniciar sesión a Confluence, Repositorio web corporativo de la oficina de proyectos. Búsqueda indexada sobre documentación de proyectos y la PMO.' />             
+            </a>
+            <a onclick="ventana('http://10.69.43.48/pmo/')" target="_blank">
+                <img src="images/requerimientos.png" class="bimg" name="Requerimientos" alt="requerimientos"
+                title='Acceso directo a Consulta Rápida de Estado de Requerimientos, Herramienta PMO que permite hallar flujos padres e hijos en su estado actual.'/>              
+            </a>
+            <a onclick="ventana('comunicacion.jsp')" target="_blank">
+                <img src="images/comunicacion.png" class="bimg" name="comunicacion" alt="comunicacion"  
+                title='Portal de Gestión del Plan de Comunicación PMO, Heerramienta de Gestión para Equípo PMO. Aprobación de Solicitudes, Status de Proyectos, Priorización BAU y Proyect.'/>            
+            </a>
+            </section>
+        </div>                      
+        <footer>
+            <table class="full">
+                <tr>
+                    <td>
+                        <h3>PMIS - TigoUne PMO Version 1.0</h3> 
+                        <p>.::Copyright © 2014 Colombia Movil S.A::.</p> 
+                        <h4>.::Todos los derechos reservados::.</h4>                
+                    </td>        
+                    <td>
+                        <img src="images/comunicacion/com-foo.png" style="width: 90%"  name="fases"   alt="fases" />
+                    </td>                                
+                </tr>
+            </table>            
+        </footer>   
+    </h:body>
+</html>
+

@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'war'
+
+    group = 'com.qcmarcel'
+repositories {
+    mavenCentral()
+    flatDir {
+       dirs("libs", "poi", "htmltoimage")
+    }
+}
+
+dependencies {
+    providedCompile 'jakarta.platform:jakarta.jakartaee-web-api:10.0.0'
+    implementation 'mysql:mysql-connector-java:5.1.30'
+    implementation 'javax.activation:javax.activation:1.2.0'
+    implementation 'javax.mail:mail'
+    implementation 'poi.ooxml:poi-ooxml:3.11-beta2-20140822'
+    implementation 'poi.ooxml.schemas:poi-ooxml-schemas:3.11-beta2-20140822'
+    implementation 'htmltoimage:html2image:0.9'
+    testImplementation     'junit:junit:4.13'
+}

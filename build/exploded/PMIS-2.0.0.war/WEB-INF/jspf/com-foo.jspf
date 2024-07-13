@@ -1,0 +1,3 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<img class="full" src="../../images/comunicacion/com-foo.png" name="Requerimientos" alt="fases" /> 

@@ -1,0 +1,19 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="Services.Slides"%>
+<%@ page pageEncoding="UTF-8" %>
+<h6 class="justify"><%= new Slides().getSlides(7, 4)%></h6>
+<table class="none">    
+    <%for(int i=5;i<12;i++){%>
+    <tr>        
+        <td class="none">
+            <%if(i==8){%>
+            <h5 class="justify" style="text-decoration: underline;"><%=i-4%>- <%= new Slides().getSlides(7, i)%></h5>
+            <%}else if(i==7){%>
+            <h6 class="justify"><%= new Slides().getSlides(7, i)%></h6>
+            <%}else{%>
+            <h6 class="justify"><%=i-4%>- <%= new Slides().getSlides(7, i)%></h6>
+            <%}%>
+        </td>
+    </tr>
+    <%}%>
+</table>

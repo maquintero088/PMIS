@@ -1,0 +1,34 @@
+.com-th{
+    background: rgb(198,217,241);
+    font: 16px "calibri"; 
+    font-weight: bold;
+    text-align: center
+}
+.com-table{    
+    color: #000;
+    margin: 10px;
+    font: 12px "calibri";
+}
+.com-table2{    
+    text-align: center;
+    font: 16px "calibri";
+    border: none;
+    width:100%
+}
+.com-table3{
+    color: #000;
+    text-align: justify;
+    font: 12px "calibri";
+}
+td,th{
+    border: thin solid rgb(79,129,189);
+}
+.title2{
+    color: rgb(31,73,125);
+}
+
+.bborde{
+    background: rgb(233,237,244);
+    border: none;
+    border: thin solid #fff;
+}

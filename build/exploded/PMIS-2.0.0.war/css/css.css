@@ -1,0 +1,383 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 8/08/2014, 02:46:03 PM
+    Author     : Marcel.Quintero
+*/
+
+*{
+    /*font-family: "Trebuchet MS",Helvetica,sans-serif !important;*/
+    margin: 0px;
+    text-align: center;
+}
+html,body{
+    height:105%;
+    background: rgb(220, 220, 220); 
+}
+ 
+#page-wrap{
+    box-shadow: -3px 1px 6px rgb(0, 32, 96);    
+    background-image: 
+        url("../images/PMISfondo.png");  
+    background-size:  100% ;
+    background-position: 5% 50%;
+    width: 96%;
+    margin: auto;
+    height: auto;
+    min-height:100%;
+}
+ 
+#page-wrap:after{
+    width: 100%;
+    height:150px;
+    display:block;
+    clear:both;
+}
+ 
+footer{
+    width: 96%;
+    margin: -150px auto 0;
+}
+
+.azul{
+    background: rgb(66,106,178);
+}
+.verde{
+    background: rgb(98,186,70);
+}
+.rojo{
+    background: rgb(236,24,70);
+}
+.amarillo{
+    background: rgb(252,184,51);
+}
+.azulc{
+    background: rgb(186, 215, 228);
+}
+.adic{
+    background: rgb(219, 170, 33);
+}
+.bazul{
+    background: rgb(49, 79, 136);
+}
+.tazul{    
+    background: rgb(78, 112, 180); 
+}
+.lazul{    
+    background: rgb(0, 32, 96); 
+}
+.gris{
+    background: rgba(0, 0, 0, 0.2);    
+}
+.grisk{
+    background: rgb(220, 220, 220);    
+}
+.grisb{
+    background: rgb(180, 180, 180);    
+}
+header{   
+    color: #fff;
+    text-align: center;
+    box-shadow: -3px 2px 9px #7f7f7f;
+    background: #fff;
+}
+b{
+    font-family: "Berlin Sans FB";
+    font-weight: bold;
+}
+
+footer{
+    font-size: 10px;
+    background: #fff;
+}
+p{
+    font-size: 12px;
+}
+section,article,header{
+    text-align: center; 
+}
+article{
+    border-radius: 10px;
+    box-shadow: 2px -1px 6px #000; 
+    background: #fff;
+    margin: 10px;    
+}
+.Azul{
+    background: linear-gradient(179deg, rgba(66,106,178, 0.8) 25%, rgba(66,106,178, 0.3) 88%);    
+}
+.Verde{
+    background: linear-gradient(179deg, rgba(98,186,70, 0.8) 25%, rgba(98,186,70, 0.3) 88%);    
+}
+.Amarillo{
+    background: linear-gradient(179deg, rgba(252,184,51, 0.8) 25%, rgba(252,184,51, 0.3) 88%);    
+}
+.Rojo{
+    background: linear-gradient(179deg, rgba(236,24,70, 0.8) 25%, rgba(236,24,70, 0.3) 88%);       
+}
+.PMIS{
+    background: linear-gradient(180deg, rgb(220, 220, 220) 2%, rgb(49, 79, 136) 36%);       
+}
+
+.menu{
+    font: 16px "Berlin Sans FB";
+    font-weight: bold;
+    background: linear-gradient(179deg, rgb(255, 255, 255) 25%, rgb(180, 180, 180) 88%);
+    color:#000;    
+    border: none;    
+    box-shadow: 1px 0px 1px #000;
+    max-width: 30%;  
+    min-height: 35px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;  
+}
+
+.bt:hover{
+    color: #000;
+    box-shadow: -3px 0px 9px #000;
+    border:  none;
+    background: linear-gradient(350deg, rgb(220, 220, 220) 45%, rgb(49, 79, 136) 86%);       
+}
+object{    
+    box-shadow: -4px 0px 9px rgba(80, 90, 180, 0.5);
+    min-height: 50px;
+    border-radius: 5px;
+    background: rgba(255,255,255, 0.8);
+    resize: both;
+    width: 100%;
+    min-height: 100%;
+}
+input[type="checkbox"]{
+    width: 100px;
+}
+.d{
+    background: linear-gradient(179deg, rgb(240,240,240) 25%, rgb(180,180,180) 88%);  
+    color: rgb(80, 90, 180);
+    font-size: 24px;
+    font-weight: bold;
+}
+.marco{
+    background: linear-gradient(179deg, rgb(240,240,240) 25%, rgb(180,180,180) 88%);
+}
+.bt{
+    background: linear-gradient(180deg, rgb(0, 32, 96) 5%, rgb(49, 79, 136) 58%); 
+    border: thin solid rgba(180,180,180, 0.5);
+    font-size: 18px;  
+    font-family: "Trebuchet MS",Helvetica,sans-serif !important;
+    color:#fff;    
+    cursor: pointer;
+    min-width: 100%;
+}
+.bt3{
+    border: thin solid rgba(180,180,180, 0.5);
+    font: 14px "Berlin Sans FB";
+    color:rgb(66,106,178);
+    cursor: pointer;
+    min-width: 100%;
+}
+.bt2{
+    background: linear-gradient(180deg, rgb(255,255,255) 25%, rgba(180,180,180, 0.8)  88%);
+    border: thin solid rgba(180,180,180, 0.5);
+    font-size: 16px; 
+    font-family: "Trebuchet MS",Helvetica,sans-serif !important;
+    color: rgb(49, 79, 136);    
+    text-align: justify;
+    cursor: pointer;
+    min-width:100%;
+    border-bottom-right-radius: 10px;
+}
+.bt:hover,.bt2:hover ,.bt3:hover, .bimg:hover,.menu:hover{
+     border: medium solid #000;
+}
+    
+input[type="hidden"]{
+    text-align: left;
+    width:15px; 
+}
+.barra{
+    margin-bottom: 2px; 
+    background: linear-gradient(179deg, rgb(49, 79, 136) 25%, rgb(9, 39, 96) 88%);
+}
+.bimg{
+    width: 50%;
+}
+.w70 {
+    width:70%;
+}
+.left{
+    float:left;
+}
+.right{
+    float:right;
+}
+.td1{
+    width:400px;
+    vertical-align: top;
+    background: linear-gradient(90deg, rgb(186, 215, 228) 25%, rgb(80,90,180) 88%);
+    font-family: "Trebuchet MS",Helvetica,sans-serif !important;
+    font-size: 12px; 
+}
+.list{
+    background: linear-gradient(180deg, rgb(186, 215, 228) 25%, rgba(86, 115, 128, 0.8) 95%);
+    border: thin solid rgba(180,180,180, 0.5);
+    color:#000;    
+    cursor: pointer;
+    text-align: justify;
+    width: 390px; 
+    font-size: 11px
+}
+.grafica2{
+    max-width: 600px; height: 500px;
+}
+.blanco , .formo, .blanco2{
+    font-family: "Trebuchet MS",Helvetica,sans-serif !important;
+    background: #fff;
+    box-shadow: 2px 0px 2px #fff;
+    border: thin solid rgba(86, 115, 128, 0.8);
+    vertical-align: top;
+    padding: 5px;
+}
+.negro{
+    color: #000;
+}
+a{
+    text-decoration: none;
+}
+.grafica{
+     height: 460px; 
+}
+.tab1{
+    float: right;
+    border-top-left-radius: 10px;
+    background: #fff;
+}
+.slide{
+    margin:10px;
+    background: #fff; 
+    box-shadow: 1px 2px 6px #000;
+}
+.slidetitle{
+    background: rgb(78, 112, 180); 
+    min-height: 30px;
+    color: #fff;
+    font: 20px "calibri";
+    font-weight: bold;  
+    text-align: left;
+    padding-left: 15px;
+    vertical-align: central;
+}
+.slidebody{
+    height: 100%;
+    color: rgb(31,73,125);
+    font: 20px "calibri";     
+    padding: 1%;
+}
+.slidefooter{
+    
+}
+.cuadro1{
+    border: thin solid rgb(79,129,189);
+    margin: 10px;
+    padding: 5px;
+    text-align: justify;
+    font-size: 70%;
+}
+.cuadrofecha{
+    border: thin solid rgb(79,129,189);
+    background: rgb(98,248,86);
+    margin: 10px;
+    padding: 5px;
+    text-align: justify;
+    font-size: 70%;
+}
+.justify{
+    text-align: justify;
+}
+.center{
+    text-align: center;
+}
+.underline{
+    text-decoration:  underline;
+}
+.none{
+    border: none;
+    background: none;
+}
+.parrafo1{
+    font-size: 20px;
+    margin: 10px;
+}
+.table,.full{
+    width:100%;
+}
+.tx_silde_bazul{
+    color: rgb(0, 32, 96);    
+}
+#status_project{
+    padding: 1%;
+    font-size: 20px;
+    font-family: arial;
+    margin-bottom: 10px;
+}
+.status_description{    
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    color:  rgb(78, 112, 180);
+    font: 14px "calibri"; 
+    padding: 2%;
+    float: left;
+    width: 90%; 
+    max-width: 600px;
+}
+.status_table{    
+    color: rgb(0, 32, 96); 
+    width: 90%;
+    float: right;
+    max-width: 600px;
+}
+.border_status{
+    border-bottom:  thin solid #000;
+    border-top:  thin solid #000
+}
+.status_acciones{    
+    border: thin solid rgb(0, 32, 96);
+    color: rgb(0, 32, 96);  
+    margin: 1%;
+    width: 95%;    
+}
+.status_f{
+    background: rgba(0, 0, 0, 0.2);
+    color: rgb(0, 32, 96);
+    font: 14px "calibri"; 
+}
+textarea{
+    width: 80%;
+}
+select{
+    max-width: 100%;
+}
+.formo{    
+    font-family: "Trebuchet MS",Helvetica,sans-serif !important;
+    margin-top: 5%;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-bottom: 10%        
+}
+.blanco2{    
+    float: left;
+    min-width: 48%;
+}
+.min-marg{
+    margin: 2%
+}
+
+#contactenos{
+    background-image: url('../images/contactenos.png')  ;
+    height: 50px;
+    width: 300px
+}
+div,label,b{
+   font-family: "Trebuchet MS",Helvetica,sans-serif !important;
+}

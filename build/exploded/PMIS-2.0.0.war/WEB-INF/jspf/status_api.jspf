@@ -1,0 +1,60 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="Negocio.Negocio"%>
+<%@ page pageEncoding="UTF-8" %>
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+ <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart1);
+function drawChart1() {
+    
+    <%
+    String[] D;
+    if(request.getParameter("p")==null){
+        
+        D = null;
+        
+    }else {
+        
+        D = new String[15];
+        
+        D[0]= request.getParameter("p");
+        D[1] = new Negocio().like("PMO_TAREAS", "PORCENTAJE", "NOMBRE_TAREA", 
+                new Negocio().in("PMO_VIEW_TOTAL_PROYECTOS", "NOMBRE_TAREA", "ID_PROYECTOS", D[0]));
+        D[2]= ""+(100-(Integer.parseInt(D[1]))); 
+        D[3]= new Negocio().in("PMO_VIEW_TOTAL_PROYECTOS", "OBSERVACION_GESTION", "ID_PROYECTOS", D[0]);
+        D[4]= request.getParameter("b"); 
+        D[5]= new Negocio().in("PMO_VIEW_TOTAL_PROYECTOS", "NOMBRE_TAREA", "ID_PROYECTOS", D[0]);
+        D[6]= new Negocio().in("PMO_VIEW_TOTAL_PROYECTOS", "NOMBRE_TIEMPO", "ID_PROYECTOS", D[0]);  
+        D[7]= new Negocio().in("PMO_TOTAL_PROYECTOS", "ID_TIEMPO", "ID_PROYECTOS", D[0]);                     
+        D[8]= new Negocio().in("PMO_VIEW_TOTAL_PROYECTOS", "DIAS_RETRASO", "ID_PROYECTOS", D[0]);
+        D[9]= new Negocio().in("PMO_VIEW_TOTAL_PROYECTOS", "DESCRIPCION_PROYECTO", "ID_PROYECTOS", D[0]);
+        D[10]= new Negocio().in("PMO_VIEW_TOTAL_PROYECTOS", "NOMBRE_TIPO", "ID_PROYECTOS", D[0]);
+    }
+    
+%>
+            
+    <%if(request.getParameter("p")==null){
+        
+    }else{
+        %>
+                var data = google.visualization.arrayToDataTable([
+                    ["p","Avance","Faltante"],
+                    ["Status",<%=D[1]%>,<%=D[2]%>]
+                ]);                               
+                
+var 
+options = {
+    orientation: 'vertical',
+    hAxis: {title: '<%=request.getParameter("b")%>', titleTextStyle: {color: 'black'}},
+    legend: { position: 'top', maxLines: 3 },
+    bar: { groupWidth: '75%' },
+    isStacked: true
+            };
+            
+var 
+chart = new google.visualization.ColumnChart(document.getElementById('status'));
+chart.draw(data, options);   
+
+    <%}%>  
+    ;}
+ </script>

@@ -1,0 +1,91 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="com.qcmarcel.PMIS.Negocio.Negocio"%>
+<%@ page pageEncoding="UTF-8" %>
+<%   String PAGE = request.getRequestURI().replace("/PMIS_Tigo_PMO/", "");
+    if(
+        request.getParameter("password")==null||
+        request.getParameter("password").equals("")||
+        request.getParameter("username")==null||
+        request.getParameter("username").equals("")
+        ){%>
+        <!-- Iniciar sesión -->
+        
+        <article class="formo">
+            <form action="<%=PAGE%>" method="post" >
+                <div class="Azul">     
+                    <label for="username">
+                        Por favor, digite Usuario y Contraseña
+                    </label>
+                </div>
+                <div class="blanco"> 
+                    <label for="username">
+                        <b>Usuario</b>
+                    </label>
+                    <br class="min-marg">
+                    <input type="text" name="username" pattern="[A-z-.]+" required=""/>
+                </div>
+                <div class="blanco">
+                    <label for="password">
+                        <b>Contraseña</b>
+                    </label>
+                    <br class="min-marg">
+                    <input type="password" name="password" required=""/>
+                </div>
+                <div class="min-marg">
+                    <input type="submit" name="option" class="bt" value="Confirmar">
+                </div> 
+            </form>
+        </article>
+        <%//}else if(new Negocio().login(request.getParameter("username"),request.getParameter("password"))== null){  
+            }else if(new Negocio().valor("PMIS_USER","ID_USER","PT_PERSONA","LOWER('"+request.getParameter("username")+"') and PS_CLAVE_USER = '"+request.getParameter("password")+"'")== null){  
+            %>
+            <article class="formo">
+                <form action="<%=PAGE%>" method="post">
+                   <div class="Rojo">
+                      <label for="username">
+                          <b >Usuario o Contraseña incorrecta</b>
+                      </label>
+                   </div> 
+                    <div class="blanco">
+                        <label for="username">
+                            <b>Usuario</b>
+                        </label>
+                        <br class="min-marg">
+                        <input type="text" name="username" pattern="[A-z-.]+" required=""/>
+                    </div> 
+                    <div class="blanco">
+                        <label for="password">
+                            <b>Contraseña</b>
+                        </label>
+                        <br class="min-marg">
+                        <input type="password" name="password" required=""/>      
+                    </div> 
+                    <br class="min-marg">
+                    <input type="submit" name="option" class="bt" value="Confirmar">
+                </form>
+            </article>
+            <%
+        }else{           
+            int value=Integer.parseInt(new Negocio().in("PMIS_USER", "PMIS_PRIVILEGES", "ID_USER", new Negocio().in("PMIS_USER", "ID_USER", "PT_PERSONA", "LOWER('"+request.getParameter("username")+"')")));
+            
+            new Negocio().editar("CRITERIO_USO,SQL_USO,USUARIO_USO", "PMIS_USO", "'Inicio: "+PAGE.replace(".jsp", "")+"','SELECT ID_USER FROM PMIS_USER WHERE PT_PERSONA in (LOWER(/"+request.getParameter("username")+"/))', LOWER('"+request.getParameter("username")+"')", 1);
+            
+            String 
+                    sesion=new Negocio().in("PT_PERSONA", "NN_NOMBRES_PERSONA" , "USUARIO_PERSONA" , "'"+new Negocio().in("PMIS_USER", "PT_PERSONA", "PT_PERSONA", "LOWER('"+request.getParameter("username")+"')")+"'"),
+                    usuario=new Negocio().in("PMIS_USER", "PT_PERSONA" , "PT_PERSONA" , "LOWER('"+request.getParameter("username")+"')");
+            %>
+            <form action="<%=PAGE%>" method="post">
+                <div class="formo">
+                  <h3><%=sesion%></h3>
+                  <div class="blanco" >
+                      <p>Esta es una herramienta de Gestión Tigo PMO de uso restringido,
+                         con el fin de proteger la integridad y privacidad de los datos 
+                         de la Oficina de Proyectos.</p>
+                  </div>
+                  <div class="blanco" >
+                  <input type="hidden" name="log" value="<%=usuario%>"/>
+                  <input type="submit" class="bt" value="Continuar">  
+                </div>  
+                </div> 
+            </form>                              
+                <%}%>  
